@@ -8,6 +8,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 class AuthService {
     
@@ -62,33 +63,80 @@ class AuthService {
         }
     }
     
-//    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
-//
-//        let lowerCaseEmail = email.lowercased()
-//        let body : [String: Any] = [
-//            "email": lowerCaseEmail,
-//            "password": password
-//        ]
-//
-//        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
-//
-//            if response.result.error == nil {
-//                let resultDict = response.result.value as? Dictionary<String, Any> {
-//                    if let emailDict = resultDict["user"] as? String {
-//                        self.userEmail = emailDict
-//                    }
-//                    if let tokenDict = resultDict["token"] as? String {
-//                        self.authToken = tokenDict
-//                    }
+    func loginUser(email: String, password: String, completion: @escaping CompletionHandler) {
+
+        let lowerCaseEmail = email.lowercased()
+        let body : [String: Any] = [
+            "email": lowerCaseEmail,
+            "password": password
+        ]
+
+        Alamofire.request(URL_LOGIN, method: .post, parameters: body, encoding: JSONEncoding.default, headers: HEADER).responseJSON { (response) in
+
+            if response.result.error == nil {
+
+                if let resultDict = response.result.value as? Dictionary<String, Any> {
+                    if let emailDict = resultDict["user"] as? String {
+                        self.userEmail = emailDict
+                    }
+                    if let tokenDict = resultDict["token"] as? String{
+                        self.authToken = tokenDict
+                    }
+                }
+                
+                // Using SwiftyJSON - DIDN'T WORK!!!
+//                guard let data = response.data else {
+//                    return
 //                }
-//
-//
-//
-//                completion(true)
-//            } else {
-//                completion(false)
-//                debugPrint(response.result.error as Any)
-//            }
-//        }
-//    }
+//                let json = JSON(data: data)
+//                self.userEmail = json["user"].stringValue
+//                self.authToken = json["token"].stringValue
+
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
+    
+    func createUser(name: String, email: String, avatarColor: String, avatarName: String, completion: @escaping CompletionHandler) {
+        
+        let lowerCaseEmail = email.lowercased()
+        
+        let body = [
+            "name": name,
+            "email": lowerCaseEmail,
+            "avatarName": avatarName,
+            "avatarColor": avatarColor
+        ]
+        
+        let header = [
+            "Authorization": "Bearer \(AuthService.instance.authToken)",
+            "Content-Type": "application/json; charset=utf-8"
+        ]
+        
+        Alamofire.request(URL_ADD_USER, method: .post, parameters: body, encoding: JSONEncoding.default, headers: header).responseJSON { (response) in
+            
+            if response.result.error == nil {
+                
+                // SwiftyJSON
+                guard let data = response.data else { return }
+                if let json = try? JSON(data: data) {
+                    let idJSON = json["id"].stringValue
+                    let colorJSON = json["avatarColor"].stringValue
+                    let avNameJSON = json["avatarName"].stringValue
+                    let emailJSON = json["email"].stringValue
+                    let nameJSON = json["name"].stringValue
+                    
+                    UserDataService.instance.setUserData(ID: idJSON, avatarColor: colorJSON, avatarName: avNameJSON, email: emailJSON, name: nameJSON)
+                }
+
+                completion(true)
+            } else {
+                completion(false)
+                debugPrint(response.result.error as Any)
+            }
+        }
+    }
 }
