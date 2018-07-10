@@ -264,7 +264,7 @@
                                     </view>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6D-xk-DVF">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v6D-xk-DVF" customClass="RoundedButton" customModule="smack_chat" customModuleProvider="target">
                                 <rect key="frame" x="62" y="298" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -389,6 +389,9 @@
                                 <state key="normal" title="Choose avatar">
                                     <color key="titleColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseAvatarPressed:" destination="xoT-y8-yJ0" eventType="touchUpInside" id="Ywz-Q2-ZcO"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="m3w-jJ-Qp0">
                                 <rect key="frame" x="95" y="479.5" width="185" height="33"/>
@@ -400,8 +403,11 @@
                                 <state key="normal" title="Generate background color">
                                     <color key="titleColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="chooseBGColorPressed:" destination="xoT-y8-yJ0" eventType="touchUpInside" id="2Q8-Tf-3oq"/>
+                                </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPv-kz-8Qg">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LPv-kz-8Qg" customClass="RoundedButton" customModule="smack_chat" customModuleProvider="target">
                                 <rect key="frame" x="62" y="597" width="250" height="50"/>
                                 <color key="backgroundColor" red="0.35686274509999999" green="0.62352941179999999" blue="0.79607843140000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -438,6 +444,10 @@
                         <viewLayoutGuide key="safeArea" id="TeP-Lp-JQg"/>
                     </view>
                     <connections>
+                        <outlet property="emailTxt" destination="8LR-2M-022" id="xSI-mt-FRu"/>
+                        <outlet property="passwordTxt" destination="AV9-Lp-r2T" id="ez4-9x-lJd"/>
+                        <outlet property="userImg" destination="ML0-2K-7G3" id="rl9-zG-wTG"/>
+                        <outlet property="usernameTxt" destination="UJP-Ws-hj7" id="xn0-V5-tjB"/>
                         <segue destination="ihZ-Db-f9b" kind="unwind" identifier="unwindToChannel" unwindAction="prepareForUnwindWithSegue:" id="Db0-iC-2XL"/>
                     </connections>
                 </viewController>
