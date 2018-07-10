@@ -176,6 +176,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="rla-3G-dgd" id="uVx-CZ-O76"/>
+                        <outlet property="userImg" destination="MaY-i3-go6" id="gXZ-V8-0dz"/>
                         <segue destination="fNy-u4-gKE" kind="show" identifier="toLogin" id="o1e-w9-NML"/>
                     </connections>
                 </viewController>
@@ -519,7 +520,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="ZPh-Fk-shg">
-                                                    <rect key="frame" x="10" y="10" width="80" height="70"/>
+                                                    <rect key="frame" x="10" y="10" width="80" height="80"/>
                                                 </imageView>
                                             </subviews>
                                         </view>

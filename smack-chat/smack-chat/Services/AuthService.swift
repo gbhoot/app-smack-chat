@@ -85,12 +85,13 @@ class AuthService {
                 }
                 
                 // Using SwiftyJSON - DIDN'T WORK!!!
-//                guard let data = response.data else {
-//                    return
+                guard let data = response.data else {
+                    return
+                }
+//                if let json = try? JSON(data: data) {
+//                    self.userEmail = json["user"].stringValue
+//                    self.authToken = json["token"].stringValue
 //                }
-//                let json = JSON(data: data)
-//                self.userEmail = json["user"].stringValue
-//                self.authToken = json["token"].stringValue
 
                 completion(true)
             } else {
@@ -132,6 +133,7 @@ class AuthService {
                     UserDataService.instance.setUserData(ID: idJSON, avatarColor: colorJSON, avatarName: avNameJSON, email: emailJSON, name: nameJSON)
                 }
 
+                self.isLoggedIn = true
                 completion(true)
             } else {
                 completion(false)
