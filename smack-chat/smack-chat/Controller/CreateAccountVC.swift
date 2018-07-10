@@ -34,6 +34,7 @@ class CreateAccountVC: UIViewController {
     @IBAction func closeBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
     }
+    
     @IBAction func createAccountBtnPressed(_ sender: Any) {
         guard let name = usernameTxt.text , usernameTxt.text != "" else { return }
         guard let email = emailTxt.text , emailTxt.text != "" else { return }
@@ -56,8 +57,11 @@ class CreateAccountVC: UIViewController {
             }
         }
     }
+    
     @IBAction func chooseAvatarPressed(_ sender: Any) {
+        performSegue(withIdentifier: TO_AVATAR_PICKER, sender: nil)
     }
+    
     @IBAction func chooseBGColorPressed(_ sender: Any) {
     }
 }
