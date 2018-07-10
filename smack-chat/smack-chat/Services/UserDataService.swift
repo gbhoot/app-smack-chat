@@ -12,7 +12,7 @@ class UserDataService {
     
     static let instance = UserDataService()
     
-    public private(set) var id             =   ""
+    public private(set) var id              =   ""
     public private(set) var avatarColor     =   ""
     public private(set) var avatarName      =   ""
     public private(set) var email           =   ""
@@ -28,5 +28,13 @@ class UserDataService {
     
     func setAvatarName(avatarName: String) {
         self.avatarName = avatarName
+    }
+    
+    func clearUserData() {
+        self.id = ""
+        self.avatarColor = ""
+        self.avatarName = ""
+        self.email = ""
+        self.name = ""
     }
 }
