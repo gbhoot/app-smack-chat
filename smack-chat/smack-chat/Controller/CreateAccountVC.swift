@@ -67,7 +67,6 @@ class CreateAccountVC: UIViewController {
                             if success {
                                 self.spinner.stopAnimating()
                                 self.spinner.isHidden = true
-//                                UserDataService.instance.clearUserData()
                                 self.performSegue(withIdentifier: UNWIND, sender: nil)
                                 NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                             }
@@ -96,7 +95,7 @@ class CreateAccountVC: UIViewController {
     }
 
     @IBAction func closeBtnPressed(_ sender: Any) {
-        UserDataService.instance.clearUserData()
+        UserDataService.instance.clearUserData(logoutUser: false)
         dismiss(animated: true, completion: nil)
     }
     

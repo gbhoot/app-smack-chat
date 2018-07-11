@@ -60,11 +60,15 @@ class UserDataService {
         return newUIColor
     }
     
-    func clearUserData() {
+    func clearUserData(logoutUser: Bool) {
         self.id = ""
         self.avatarColor = ""
         self.avatarName = ""
         self.email = ""
         self.name = ""
+        
+        if logoutUser == true {
+            AuthService.instance.isLoggedIn = false
+        }
     }
 }
