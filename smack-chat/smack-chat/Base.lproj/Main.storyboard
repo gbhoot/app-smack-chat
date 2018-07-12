@@ -40,8 +40,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nwW-E2-IS9" customClass="GradientView" customModule="smack_chat" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZD-GC-z9Z">
-                                        <rect key="frame" x="163" y="44.5" width="49" height="27.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Smack" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ZD-GC-z9Z">
+                                        <rect key="frame" x="158" y="44.5" width="59" height="27.5"/>
                                         <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -74,6 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="QdW-oO-BRb"/>
                     </view>
                     <connections>
+                        <outlet property="channelNameLbl" destination="7ZD-GC-z9Z" id="Kud-mw-4wR"/>
                         <outlet property="menuBtn" destination="vmH-dZ-OI8" id="A6c-qO-jkW"/>
                     </connections>
                 </viewController>
@@ -112,6 +113,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R5V-9c-2Gw">
                                 <rect key="frame" x="281" y="110" width="22" height="22"/>
                                 <state key="normal" image="addChannelButton"/>
+                                <connections>
+                                    <action selector="addChannelBtnPressed:" destination="ryM-6T-S9z" eventType="touchUpInside" id="Wap-DU-osh"/>
+                                </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="menuProfileIcon" translatesAutoresizingMaskIntoConstraints="NO" id="MaY-i3-go6" customClass="CircleImage" customModule="smack_chat" customModuleProvider="target">
                                 <rect key="frame" x="16" y="572" width="75" height="75"/>
@@ -182,6 +186,7 @@
                         <viewLayoutGuide key="safeArea" id="OHU-lr-Bzc"/>
                     </view>
                     <connections>
+                        <outlet property="addChannelBtn" destination="R5V-9c-2Gw" id="eTB-Ad-Eny"/>
                         <outlet property="loginBtn" destination="rla-3G-dgd" id="uVx-CZ-O76"/>
                         <outlet property="tableView" destination="zc1-C8-s0W" id="b5f-CV-Dd7"/>
                         <outlet property="userImg" destination="MaY-i3-go6" id="gXZ-V8-0dz"/>

@@ -6,7 +6,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -25,7 +24,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view alpha="0.40000000000000002" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nei-sd-aK6" userLabel="bgView">
-                    <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BhE-JD-dM9">
@@ -103,14 +102,13 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="nei-sd-aK6" secondAttribute="trailing" id="96W-Gi-PAg"/>
+                <constraint firstAttribute="trailing" secondItem="nei-sd-aK6" secondAttribute="trailing" id="96W-Gi-PAg"/>
                 <constraint firstItem="BhE-JD-dM9" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="AwI-a1-vjW"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="nei-sd-aK6" secondAttribute="bottom" id="SnI-fr-2eN"/>
-                <constraint firstItem="nei-sd-aK6" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aP1-Hl-GUP"/>
-                <constraint firstItem="nei-sd-aK6" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="gFn-gA-Evt"/>
+                <constraint firstAttribute="bottom" secondItem="nei-sd-aK6" secondAttribute="bottom" id="SnI-fr-2eN"/>
+                <constraint firstItem="nei-sd-aK6" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="aP1-Hl-GUP"/>
+                <constraint firstItem="nei-sd-aK6" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="gFn-gA-Evt"/>
                 <constraint firstItem="BhE-JD-dM9" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="qVN-FT-4lg"/>
             </constraints>
-            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <point key="canvasLocation" x="33.5" y="53.5"/>
         </view>
     </objects>
