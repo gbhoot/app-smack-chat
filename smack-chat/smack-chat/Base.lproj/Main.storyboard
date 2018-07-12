@@ -192,6 +192,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="pyJ-KU-w82">
+                                <rect key="frame" x="169" y="255" width="37" height="37"/>
+                                <color key="color" red="0.25882352939999997" green="0.3294117647" blue="0.72549019609999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cvv-0f-sto">
                                 <rect key="frame" x="329" y="28" width="30" height="30"/>
                                 <constraints>
@@ -275,14 +279,19 @@
                                 <state key="normal" title="Login">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="loginBtnPressed:" destination="fNy-u4-gKE" eventType="touchUpInside" id="DSX-vv-ak5"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Cmb-7z-h1e" firstAttribute="top" secondItem="edU-tD-PHw" secondAttribute="bottom" constant="40" id="6mf-eW-mmu"/>
                             <constraint firstItem="Cmb-7z-h1e" firstAttribute="centerX" secondItem="QXi-0Q-gmc" secondAttribute="centerX" id="9ZY-ni-TwH"/>
+                            <constraint firstItem="pyJ-KU-w82" firstAttribute="centerX" secondItem="QXi-0Q-gmc" secondAttribute="centerX" id="BaT-XR-PUI"/>
                             <constraint firstItem="v6D-xk-DVF" firstAttribute="centerX" secondItem="QXi-0Q-gmc" secondAttribute="centerX" id="Ll0-18-9MD"/>
                             <constraint firstItem="cPD-Cj-TWJ" firstAttribute="width" secondItem="v6D-xk-DVF" secondAttribute="width" id="Mwp-C0-Lq4"/>
+                            <constraint firstItem="pyJ-KU-w82" firstAttribute="centerY" secondItem="QXi-0Q-gmc" secondAttribute="centerY" constant="-60" id="OMr-ZV-KdH"/>
                             <constraint firstItem="cPD-Cj-TWJ" firstAttribute="centerX" secondItem="QXi-0Q-gmc" secondAttribute="centerX" id="PGp-wJ-dIX"/>
                             <constraint firstItem="cPD-Cj-TWJ" firstAttribute="top" secondItem="v6D-xk-DVF" secondAttribute="bottom" id="bb4-oc-0gL"/>
                             <constraint firstItem="edU-tD-PHw" firstAttribute="centerX" secondItem="QXi-0Q-gmc" secondAttribute="centerX" id="f8A-PE-teX"/>
@@ -295,6 +304,10 @@
                         <viewLayoutGuide key="safeArea" id="Rnx-Nv-lq7"/>
                     </view>
                     <connections>
+                        <outlet property="loginBtn" destination="v6D-xk-DVF" id="fAH-LQ-0dl"/>
+                        <outlet property="passwordTxt" destination="g5l-rM-j2O" id="sqm-ka-gfh"/>
+                        <outlet property="spinner" destination="pyJ-KU-w82" id="iAb-CU-ebP"/>
+                        <outlet property="usernameTxt" destination="gCy-vw-pf9" id="JiF-Tr-5ZQ"/>
                         <segue destination="xoT-y8-yJ0" kind="show" identifier="toCreate" id="f0A-dd-z73"/>
                     </connections>
                 </viewController>
