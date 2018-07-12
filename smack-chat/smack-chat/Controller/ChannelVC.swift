@@ -28,11 +28,11 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.userDataDidChange(_:)), name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(ChannelVC.channelsLoaded(_:)), name: NOTIF_CHANNELS_LOADED, object: nil)
         
-        MessageService.instance.getChannels { (success) in
-            if success {
-                
-            }
-        }
+//        MessageService.instance.getChannels { (success) in
+//            if success {
+//
+//            }
+//        }
         
         setupUserInfo()
     }
@@ -69,12 +69,14 @@ class ChannelVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     }
     
     func setupUserInfo() {
-        if AuthService.instance.isLoggedIn {
+        if AuthService.instance.isLoggedIn && UserDataService.instance.id != nil {
+            print("I'M STUPID")
             loginBtn.setTitle(UserDataService.instance.name, for: .normal)
             userImg.image = UIImage(named: UserDataService.instance.avatarName)
             userImg.backgroundColor = UserDataService.instance.returnUIColor(components: UserDataService.instance.avatarColor)
             tableView.reloadData()
         } else {
+            print("I'M REALLY STUPID")
             loginBtn.setTitle("Login", for: .normal)
             userImg.image = UIImage(named: "menuProfileIcon")
             userImg.backgroundColor = UIColor.lightGray

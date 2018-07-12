@@ -72,4 +72,8 @@ class UserDataService {
             MessageService.instance.clearChannels()
         }
     }
+    
+    func getUserData(userID: String) {
+        
+    }
 }
