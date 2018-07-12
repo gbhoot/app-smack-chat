@@ -29,6 +29,15 @@ class ChatVC: UIViewController {
                     NotificationCenter.default.post(name: NOTIF_USER_DATA_DID_CHANGE, object: nil)
                 }
             }
+            MessageService.instance.getChannels { (success) in
+                
+            }
+        }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        MessageService.instance.getChannels { (success) in
+            
         }
     }
 

@@ -15,6 +15,7 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var spinner: UIActivityIndicatorView!
     @IBOutlet weak var loginBtn: RoundedButton!
+    @IBOutlet weak var exitBtn: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,6 +32,7 @@ class LoginVC: UIViewController {
         spinner.isHidden = false
         spinner.startAnimating()
         loginBtn.isEnabled = false
+        exitBtn.isEnabled = false
         
         guard let email = usernameTxt.text , usernameTxt.text != "" else { return }
         guard let pass = passwordTxt.text , passwordTxt.text != "" else { return }
@@ -60,6 +62,7 @@ class LoginVC: UIViewController {
     func setupView() {
         spinner.isHidden = true
         loginBtn.isEnabled = true
+        exitBtn.isEnabled = true
         
         usernameTxt.attributedPlaceholder = NSAttributedString(string: "username", attributes: [NSAttributedStringKey.foregroundColor: PLACEHOLDER_TEXT])
         passwordTxt.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedStringKey.foregroundColor: PLACEHOLDER_TEXT])

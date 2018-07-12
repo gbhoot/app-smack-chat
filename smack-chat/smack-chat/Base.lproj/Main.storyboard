@@ -124,23 +124,30 @@
                                 <rect key="frame" x="0.0" y="152" width="375" height="400"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HD0-dS-I5e">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="channelCell" id="HD0-dS-I5e" customClass="ChannelCell" customModule="smack_chat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HD0-dS-I5e" id="Llk-pu-52m">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGB-cN-2Hq">
-                                                    <rect key="frame" x="15" y="11" width="67" height="24"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="#general" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FGB-cN-2Hq">
+                                                    <rect key="frame" x="20" y="10" width="335" height="24"/>
                                                     <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
-                                                    <nil key="textColor"/>
+                                                    <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="FGB-cN-2Hq" firstAttribute="centerX" secondItem="Llk-pu-52m" secondAttribute="centerX" id="5SD-BT-i6h"/>
+                                                <constraint firstItem="FGB-cN-2Hq" firstAttribute="top" secondItem="Llk-pu-52m" secondAttribute="top" constant="10" id="kaQ-9U-HKE"/>
+                                                <constraint firstItem="FGB-cN-2Hq" firstAttribute="leading" secondItem="Llk-pu-52m" secondAttribute="leading" constant="20" id="pgV-vc-fkp"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="channelName" destination="FGB-cN-2Hq" id="5Br-BR-SSx"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -176,6 +183,7 @@
                     </view>
                     <connections>
                         <outlet property="loginBtn" destination="rla-3G-dgd" id="uVx-CZ-O76"/>
+                        <outlet property="tableView" destination="zc1-C8-s0W" id="b5f-CV-Dd7"/>
                         <outlet property="userImg" destination="MaY-i3-go6" id="gXZ-V8-0dz"/>
                         <segue destination="fNy-u4-gKE" kind="show" identifier="toLogin" id="o1e-w9-NML"/>
                     </connections>
@@ -304,6 +312,7 @@
                         <viewLayoutGuide key="safeArea" id="Rnx-Nv-lq7"/>
                     </view>
                     <connections>
+                        <outlet property="exitBtn" destination="cvv-0f-sto" id="mHz-Yo-CwR"/>
                         <outlet property="loginBtn" destination="v6D-xk-DVF" id="fAH-LQ-0dl"/>
                         <outlet property="passwordTxt" destination="g5l-rM-j2O" id="sqm-ka-gfh"/>
                         <outlet property="spinner" destination="pyJ-KU-w82" id="iAb-CU-ebP"/>
